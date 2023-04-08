@@ -1,5 +1,6 @@
 import logging
 
+from prompt_optimizer.poptim.sequential import Sequential
 from prompt_optimizer.poptim.base import PromptOptimize
 from prompt_optimizer.poptim.lemmatizer_optim import LemmatizerOptim
 from prompt_optimizer.poptim.stop_word_optim import StopWordOptim
@@ -10,6 +11,7 @@ from prompt_optimizer.poptim.stemmer_optim import StemmerOptim
 from prompt_optimizer.poptim.autocorrect_optim import AutocorrectOptim
 
 __all__ = [
+    'Sequential',
     'PromptOptimize',
     'LemmatizerOptim',
     'StopWordOptim',
@@ -17,6 +19,7 @@ __all__ = [
     'PunctuationOptim',
     'PulpOptim',
     'StemmerOptim',
+    'AutocorrectOptim',
 ]
 
 logger = logging.getLogger(__name__)
