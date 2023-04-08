@@ -7,6 +7,7 @@ from prompt_optimizer.poptim.name_replace_optim import NameReplaceOptim
 from prompt_optimizer.poptim.punctuation_optim import PunctuationOptim
 from prompt_optimizer.poptim.pulp_optim import PulpOptim
 from prompt_optimizer.poptim.stemmer_optim import StemmerOptim
+from prompt_optimizer.poptim.autocorrect_optim import AutocorrectOptim
 
 __all__ = [
     'PromptOptimize',
