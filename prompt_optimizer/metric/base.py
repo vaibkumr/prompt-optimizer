@@ -10,4 +10,4 @@ class Metric(ABC):
         pass
 
     def __call__(self, prompt_before, prompt_after):
-        return self.run(prompt_before, prompt_after) 
+        return self.run(prompt_before, prompt_after)

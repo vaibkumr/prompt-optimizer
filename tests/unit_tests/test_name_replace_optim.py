@@ -1,28 +1,20 @@
+import os
+
+from prompt_optimizer.metric import BERTScoreMetric, TokenMetric
 from prompt_optimizer.poptim import NameReplaceOptim
-from prompt_optimizer.metric import TokenMetric, BERTScoreMetric
 
 
-prompt = """Some economists have responded positively to Bitcoin, including 
-Francois R. Velde, senior economist of the Federal Reserve in Chicago 
-who described it as "an elegant solution to the problem of creating a 
-digital currency." In November 2013 Richard Branson announced that 
-Virgin Galactic would accept Bitcoin as payment, saying that he had invested 
-in Bitcoin and found it "fascinating how a whole new global currency 
-has been created", encouraging others to also invest in Bitcoin.
-Other economists commenting on Bitcoin have been critical. 
-Economist Paul Krugman has suggested that the structure of the currency 
-incentivizes hoarding and that its value derives from the expectation that 
-others will accept it as payment. Economist Larry Summers has expressed 
-a "wait and see" attitude when it comes to Bitcoin. Nick Colas, a market 
-strategist for ConvergEx Group, has remarked on the effect of increasing 
-use of Bitcoin and its restricted supply, noting, "When incremental 
-adoption meets relatively fixed supply, it should be no surprise that 
-prices go up. And that’s exactly what is happening to BTC prices. Francois also said"
-"""
+def load_prompt(prompt_f):
+    file_path = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "data", prompt_f)
+    )
+    with open(file_path, "r") as f:
+        data = f.read()
+    return data
 
-p_optimizer = NameReplaceOptim(
-    verbose=True,
-    metrics=[TokenMetric(), BERTScoreMetric()]
-)
+
+prompt = load_prompt("prompt2.txt")
+
+p_optimizer = NameReplaceOptim(verbose=True, metrics=[TokenMetric(), BERTScoreMetric()])
 optimized_prompt = p_optimizer(prompt)
 print(optimized_prompt)

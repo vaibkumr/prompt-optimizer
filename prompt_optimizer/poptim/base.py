@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from .logger import logger
 
 
@@ -17,9 +18,7 @@ class PromptOptimize(ABC):
             for metric in self.metrics:
                 out = metric(prompt, opti_prompt)
                 for key in out:
-                    logger.info(f'Metric {key}: {out[key]:.3f}') 
+                    logger.info(f"Metric {key}: {out[key]:.3f}")
                     logger.info(f"Prompt Before: {prompt}")
                     logger.info(f"Prompt After: {opti_prompt}")
-        return opti_prompt   
-    
-
+        return opti_prompt
