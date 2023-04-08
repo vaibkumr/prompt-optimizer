@@ -1,15 +1,16 @@
 import nltk
-from nltk.corpus import stopwords
-
 from prompt_optimizer.poptim.base import PromptOptimize
 
 
 class StopWordOptim(PromptOptimize):
     def __init__(self, verbose=False, metrics=[]):
         super().__init__(verbose, metrics)
-        if not nltk.corpus.stopwords.words("english"):
+
+        try:
+            self.stop_words = set(nltk.corpus.stopwords.words("english"))
+        except Exception:
             nltk.download("stopwords")
-        self.stop_words = set(stopwords.words("english"))
+            self.stop_words = set(nltk.corpus.stopwords.words("english"))            
 
     def run(self, prompt):
         words = prompt.split()
