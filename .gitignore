@@ -1,4 +1,5 @@
 notes.md
 __pycache__
 *.pyc
-.dist/
+dist
+docs/_build
