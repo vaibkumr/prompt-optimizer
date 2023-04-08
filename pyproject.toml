@@ -37,36 +37,6 @@ sphinx-book-theme = "^1.0.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [tool.poetry.group.docs.dependencies]
 autodoc_pydantic = "^1.8.0"
 nbsphinx = "^0.8.9"
