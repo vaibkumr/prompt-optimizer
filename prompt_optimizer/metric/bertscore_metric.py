@@ -5,10 +5,9 @@ from prompt_optimizer.metric.base import Metric
 
 
 class BERTScoreMetric(Metric):
-    """BERTScoreMetric between the prompt and optmized prompt.
-
-    Args:
-
+    """
+    BERTScoreMetric is a metric that calculates precision, recall, and F1 score based on BERT embeddings.
+    It inherits from the Metric base class.
     """
 
     def __init__(self):
@@ -18,7 +17,17 @@ class BERTScoreMetric(Metric):
             "bert-base-uncased", num_labels=2
         )
 
-    def run(self, prompt_before, prompt_after):
+    def run(self, prompt_before: str, prompt_after: str) -> dict:
+        """
+        Calculates precision, recall, and F1 score based on BERT embeddings.
+
+        Args:
+            prompt_before (str): The text before the prompt.
+            prompt_after (str): The text after the prompt.
+
+        Returns:
+            dict: A dictionary containing the precision, recall, and F1 score.
+        """
         inputs = self.tokenizer(
             [prompt_before, prompt_after],
             return_tensors="pt",
