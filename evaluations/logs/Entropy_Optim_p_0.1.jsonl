@@ -1,0 +1,11 @@
+[2023-05-16 10:49:00,710] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 10:49:00,874] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 10:49:00,875] [oaieval.py:110] [1;35mRun started: 230516174900BXDQIZRZ[0m
+[2023-05-16 10:49:00,876] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 10:49:00,876] [eval.py:34] Evaluating 100 samples
+[2023-05-16 10:49:00,883] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 10:49:16,954] [record.py:330] Logged 100 rows of events to results/Entropy_Optim_p_0.1.jsonl: insert_time=11.353ms
+[2023-05-16 10:49:34,817] [record.py:330] Logged 100 rows of events to results/Entropy_Optim_p_0.1.jsonl: insert_time=15.029ms
+[2023-05-16 10:49:34,823] [record.py:341] Final report: {'accuracy': 0.28}. Logged to results/Entropy_Optim_p_0.1.jsonl
+[2023-05-16 10:49:34,823] [oaieval.py:147] Final report:
+[2023-05-16 10:49:34,823] [oaieval.py:149] accuracy: 0.28

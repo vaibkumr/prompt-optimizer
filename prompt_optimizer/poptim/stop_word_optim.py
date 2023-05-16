@@ -10,7 +10,7 @@ class StopWordOptim(PromptOptimize):
             self.stop_words = set(nltk.corpus.stopwords.words("english"))
         except Exception:
             nltk.download("stopwords")
-            self.stop_words = set(nltk.corpus.stopwords.words("english"))            
+            self.stop_words = set(nltk.corpus.stopwords.words("english"))
 
     def run(self, prompt):
         words = prompt.split()

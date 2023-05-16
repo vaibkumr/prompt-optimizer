@@ -1,0 +1,11 @@
+[2023-05-16 12:19:11,565] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 12:19:11,781] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 12:19:11,782] [oaieval.py:110] [1;35mRun started: 230516191911PVPMMY7O[0m
+[2023-05-16 12:19:11,783] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 12:19:11,784] [eval.py:34] Evaluating 100 samples
+[2023-05-16 12:19:11,790] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 12:19:24,747] [record.py:330] Logged 100 rows of events to results/Pulp_Optim_p_0.1.jsonl: insert_time=22.192ms
+[2023-05-16 12:19:50,909] [record.py:330] Logged 100 rows of events to results/Pulp_Optim_p_0.1.jsonl: insert_time=23.428ms
+[2023-05-16 12:19:50,917] [record.py:341] Final report: {'accuracy': 0.25}. Logged to results/Pulp_Optim_p_0.1.jsonl
+[2023-05-16 12:19:50,917] [oaieval.py:147] Final report:
+[2023-05-16 12:19:50,917] [oaieval.py:149] accuracy: 0.25

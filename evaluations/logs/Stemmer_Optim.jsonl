@@ -1,0 +1,11 @@
+[2023-05-16 11:18:14,888] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 11:18:15,064] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 11:18:15,065] [oaieval.py:110] [1;35mRun started: 230516181815UARDO6UR[0m
+[2023-05-16 11:18:15,066] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 11:18:15,067] [eval.py:34] Evaluating 100 samples
+[2023-05-16 11:18:15,073] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 11:18:26,791] [record.py:330] Logged 100 rows of events to results/Stemmer_Optim.jsonl: insert_time=12.471ms
+[2023-05-16 11:18:42,043] [record.py:330] Logged 100 rows of events to results/Stemmer_Optim.jsonl: insert_time=14.800ms
+[2023-05-16 11:18:42,048] [record.py:341] Final report: {'accuracy': 0.09}. Logged to results/Stemmer_Optim.jsonl
+[2023-05-16 11:18:42,048] [oaieval.py:147] Final report:
+[2023-05-16 11:18:42,049] [oaieval.py:149] accuracy: 0.09

@@ -1,0 +1,12 @@
+[2023-05-16 10:51:40,154] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 10:51:40,320] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 10:51:40,321] [oaieval.py:110] [1;35mRun started: 230516175140HVZETOL6[0m
+[2023-05-16 10:51:40,322] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 10:51:40,322] [eval.py:34] Evaluating 100 samples
+[2023-05-16 10:51:40,329] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 10:52:02,470] [record.py:330] Logged 100 rows of events to results/Entropy_Optim_p_0.5.jsonl: insert_time=10.094ms
+[2023-05-16 10:52:11,891] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 1.5s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 2fb04add750c5104a2f30ce9816ced6d in your message.))
+[2023-05-16 10:52:31,716] [record.py:330] Logged 100 rows of events to results/Entropy_Optim_p_0.5.jsonl: insert_time=15.097ms
+[2023-05-16 10:52:31,722] [record.py:341] Final report: {'accuracy': 0.08}. Logged to results/Entropy_Optim_p_0.5.jsonl
+[2023-05-16 10:52:31,722] [oaieval.py:147] Final report:
+[2023-05-16 10:52:31,722] [oaieval.py:149] accuracy: 0.08

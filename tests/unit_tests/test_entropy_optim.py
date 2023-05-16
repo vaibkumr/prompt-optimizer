@@ -1,6 +1,6 @@
 import os
-from prompt_optimizer.metric import BERTScoreMetric, TokenMetric
-from prompt_optimizer.poptim import AutocorrectOptim
+from prompt_optimizer.metric import TokenMetric
+from prompt_optimizer.poptim import EntropyOptim
 
 
 def load_prompt(prompt_f):
@@ -13,6 +13,6 @@ def load_prompt(prompt_f):
 
 
 prompt = load_prompt("prompt1.txt")
-p_optimizer = AutocorrectOptim(verbose=True, metrics=[TokenMetric(), BERTScoreMetric()])
+p_optimizer = EntropyOptim(verbose=True, p=0.1, metrics=[TokenMetric()])
 optimized_prompt = p_optimizer(prompt)
 print(optimized_prompt)

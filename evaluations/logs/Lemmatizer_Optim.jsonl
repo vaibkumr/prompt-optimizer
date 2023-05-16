@@ -1,0 +1,12 @@
+[2023-05-16 11:17:23,275] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 11:17:23,555] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 11:17:23,556] [oaieval.py:110] [1;35mRun started: 230516181723VWM62TYA[0m
+[2023-05-16 11:17:23,557] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 11:17:23,558] [eval.py:34] Evaluating 100 samples
+[2023-05-16 11:17:23,567] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 11:17:38,477] [record.py:330] Logged 100 rows of events to results/Lemmatizer_Optim.jsonl: insert_time=14.978ms
+[2023-05-16 11:18:12,269] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 0.2s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 567850a6c165ac7b190022463917944f in your message.))
+[2023-05-16 11:18:14,082] [record.py:330] Logged 100 rows of events to results/Lemmatizer_Optim.jsonl: insert_time=142.862ms
+[2023-05-16 11:18:14,089] [record.py:341] Final report: {'accuracy': 0.33}. Logged to results/Lemmatizer_Optim.jsonl
+[2023-05-16 11:18:14,089] [oaieval.py:147] Final report:
+[2023-05-16 11:18:14,089] [oaieval.py:149] accuracy: 0.33

@@ -9,6 +9,8 @@ from prompt_optimizer.poptim.punctuation_optim import PunctuationOptim
 from prompt_optimizer.poptim.sequential import Sequential
 from prompt_optimizer.poptim.stemmer_optim import StemmerOptim
 from prompt_optimizer.poptim.stop_word_optim import StopWordOptim
+from prompt_optimizer.poptim.synonym_replace_optim import SynonymReplaceOptim
+from prompt_optimizer.poptim.entropy_optim import EntropyOptim
 
 __all__ = [
     "Sequential",
@@ -20,6 +22,8 @@ __all__ = [
     "PulpOptim",
     "StemmerOptim",
     "AutocorrectOptim",
+    "SynonymReplaceOptim",
+    "EntropyOptim",
 ]
 
 logger = logging.getLogger(__name__)

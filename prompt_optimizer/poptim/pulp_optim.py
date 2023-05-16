@@ -4,11 +4,11 @@ from prompt_optimizer.poptim.base import PromptOptimize
 
 
 class PulpOptim(PromptOptimize):
-    """This doesn't really reduce #tokens"""
+    """This doesn't always reduce #tokens"""
 
-    def __init__(self, aggression=0.4, verbose=False, metrics=[]):
+    def __init__(self, p=0.4, verbose=False, metrics=[]):
         super().__init__(verbose, metrics)
-        self.aggression = aggression  # will reduce num tokens by aggression*100%
+        self.aggression = p  # will reduce num tokens by aggression*100%
 
     def run(self, prompt):
         tokens = prompt.split()

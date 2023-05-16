@@ -12,6 +12,22 @@ class PromptOptimize(ABC):
     def run(self, prompt):
         pass
 
+    def run_json(self, json_data):
+        json_data["content"] = self.run(json_data["content"])
+        return json_data
+
+    def batch_run(self, data, skip_system=False, json=True):
+        optimized_data = []
+        for d in data:
+            if json:
+                if skip_system and d["role"] == "system":
+                    optimized_data.append(d)
+                else:
+                    optimized_data.append(self.run_json(d))
+            else:
+                optimized_data.append(self.run(d))
+        return optimized_data
+
     def __call__(self, prompt):
         opti_prompt = self.run(prompt)
         if self.verbose:

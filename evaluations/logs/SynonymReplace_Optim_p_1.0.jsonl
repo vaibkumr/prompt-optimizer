@@ -1,0 +1,12 @@
+[2023-05-16 11:16:33,330] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 11:16:33,511] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 11:16:33,511] [oaieval.py:110] [1;35mRun started: 230516181633ZCDDGWBF[0m
+[2023-05-16 11:16:33,512] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 11:16:33,513] [eval.py:34] Evaluating 100 samples
+[2023-05-16 11:16:33,520] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 11:16:46,158] [record.py:330] Logged 100 rows of events to results/SynonymReplace_Optim_p_1.0.jsonl: insert_time=20.366ms
+[2023-05-16 11:17:18,070] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 1.3s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID fd77f0d52eedd5ff46ce3071ff845099 in your message.))
+[2023-05-16 11:17:21,155] [record.py:330] Logged 100 rows of events to results/SynonymReplace_Optim_p_1.0.jsonl: insert_time=24.062ms
+[2023-05-16 11:17:21,163] [record.py:341] Final report: {'accuracy': 0.33}. Logged to results/SynonymReplace_Optim_p_1.0.jsonl
+[2023-05-16 11:17:21,163] [oaieval.py:147] Final report:
+[2023-05-16 11:17:21,163] [oaieval.py:149] accuracy: 0.33

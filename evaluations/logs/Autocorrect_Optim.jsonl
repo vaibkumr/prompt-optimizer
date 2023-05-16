@@ -1,0 +1,26 @@
+[2023-05-16 11:20:23,559] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 11:20:23,723] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 11:20:23,723] [oaieval.py:110] [1;35mRun started: 230516182023X6CJM7KU[0m
+[2023-05-16 11:20:23,724] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 11:20:23,725] [eval.py:34] Evaluating 100 samples
+[2023-05-16 11:20:23,732] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 11:20:50,658] [record.py:330] Logged 100 rows of events to results/Autocorrect_Optim.jsonl: insert_time=15.701ms
+[2023-05-16 11:21:30,988] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 1.5s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID ba90fac4d334d9688f362927bbeb5894 in your message.))
+[2023-05-16 11:21:37,656] [record.py:330] Logged 100 rows of events to results/Autocorrect_Optim.jsonl: insert_time=12.522ms
+[2023-05-16 11:21:37,661] [record.py:341] Final report: {'accuracy': 0.0}. Logged to results/Autocorrect_Optim.jsonl
+[2023-05-16 11:21:37,661] [oaieval.py:147] Final report:
+[2023-05-16 11:21:37,661] [oaieval.py:149] accuracy: 0.0
+[2023-05-16 11:26:27,796] [registry.py:249] Loading registry from /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/evals
+[2023-05-16 11:26:27,973] [registry.py:249] Loading registry from /Users/v/.evals/evals
+[2023-05-16 11:26:27,974] [oaieval.py:110] [1;35mRun started: 2305161826273Z3ORRVS[0m
+[2023-05-16 11:26:27,975] [data.py:75] Fetching /Users/v/Documents/PromptOptimizerProj/evals/evals/registry/data/logiqa/temp.jsonl
+[2023-05-16 11:26:27,976] [eval.py:34] Evaluating 100 samples
+[2023-05-16 11:26:27,983] [eval.py:153] Running in threaded mode with 10 threads!
+[2023-05-16 11:26:45,377] [record.py:330] Logged 100 rows of events to results/Autocorrect_Optim.jsonl: insert_time=17.767ms
+[2023-05-16 11:26:59,930] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 0.7s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 7bc34b9814c92d6eadca8679234159bb in your message.))
+[2023-05-16 11:27:02,184] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 0.4s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID faa3a94b78335bd7f2bbcbe2695f2cf7 in your message.))
+[2023-05-16 11:27:13,623] [_common.py:105] Backing off openai_chat_completion_create_retrying(...) for 0.1s (openai.error.RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 023cdd1194b029af45ba3741af56066f in your message.))
+[2023-05-16 11:27:15,684] [record.py:330] Logged 100 rows of events to results/Autocorrect_Optim.jsonl: insert_time=15.099ms
+[2023-05-16 11:27:15,688] [record.py:341] Final report: {'accuracy': 0.3}. Logged to results/Autocorrect_Optim.jsonl
+[2023-05-16 11:27:15,689] [oaieval.py:147] Final report:
+[2023-05-16 11:27:15,689] [oaieval.py:149] accuracy: 0.3
