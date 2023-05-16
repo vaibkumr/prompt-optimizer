@@ -7,7 +7,7 @@ class TokenMetric(Metric):
     """Reduction in number of tokens as tokenized by tiktoken.
 
     Args:
-        tokenizer (str): Name for the tiktoken tokenizer 
+        tokenizer (str): Name for the tiktoken tokenizer
                          `cl100k_base` by default.
 
     """

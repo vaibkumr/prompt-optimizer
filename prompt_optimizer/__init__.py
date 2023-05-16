@@ -1,8 +1,4 @@
-from prompt_optimizer.metric import (
-    BERTScoreMetric,
-    Metric,
-    TokenMetric,
-)
+from prompt_optimizer.metric import BERTScoreMetric, Metric, TokenMetric
 from prompt_optimizer.poptim import (
     LemmatizerOptim,
     NameReplaceOptim,

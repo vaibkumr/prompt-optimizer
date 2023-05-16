@@ -14,7 +14,6 @@ utils.dataframe_to_markdown(df, os.path.join("artifacts", f"table.md"))
 
 
 for col in df.columns[1:]:
-
     # Plotting
     x = df.Name
 

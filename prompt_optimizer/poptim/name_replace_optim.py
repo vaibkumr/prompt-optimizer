@@ -102,7 +102,6 @@ class NameReplaceOptim(PromptOptimize):
                 person.append(leaf[0])
 
             if len(person) > 1:
-
                 for part in person:
                     name += part + " "
 

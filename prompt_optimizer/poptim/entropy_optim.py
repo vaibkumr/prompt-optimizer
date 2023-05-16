@@ -1,13 +1,17 @@
-import torch
-from transformers import AutoTokenizer, AutoModelForMaskedLM, AutoModelForCausalLM
 import numpy as np
+import torch
+from transformers import AutoModelForMaskedLM, AutoTokenizer
 
 from prompt_optimizer.poptim.base import PromptOptimize
 
 
 class EntropyOptim(PromptOptimize):
     def __init__(
-        self, model_name="bert-base-cased", p=0.9, verbose=False, metrics=[],
+        self,
+        model_name="bert-base-cased",
+        p=0.9,
+        verbose=False,
+        metrics=[],
     ):
         """Higher p = Larger Cutoff"""
         super().__init__(verbose, metrics)

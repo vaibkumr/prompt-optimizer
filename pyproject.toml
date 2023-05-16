@@ -14,6 +14,8 @@ pulp = "^2.7.0"
 nltk = "^3.8.1"
 tiktoken = "^0.3.3"
 autocorrect = "^2.6.1"
+black = "^23.3.0"
+isort = "^5.12.0"
 
 [tool.poetry.group.dev.dependencies]
 sphinx = "^6.1.3"
