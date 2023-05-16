@@ -1,5 +1,7 @@
 import logging
 
+import nltk
+
 from prompt_optimizer.poptim.autocorrect_optim import AutocorrectOptim
 from prompt_optimizer.poptim.base import PromptOptimize
 from prompt_optimizer.poptim.entropy_optim import EntropyOptim
@@ -12,6 +14,7 @@ from prompt_optimizer.poptim.stemmer_optim import StemmerOptim
 from prompt_optimizer.poptim.stop_word_optim import StopWordOptim
 from prompt_optimizer.poptim.synonym_replace_optim import SynonymReplaceOptim
 
+nltk.download("wordnet")
 __all__ = [
     "Sequential",
     "PromptOptimize",
