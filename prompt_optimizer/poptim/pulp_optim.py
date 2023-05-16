@@ -4,13 +4,34 @@ from prompt_optimizer.poptim.base import PromptOptimize
 
 
 class PulpOptim(PromptOptimize):
-    """This doesn't always reduce #tokens"""
+    """
+    PulpOptim is a prompt optimization technique based on integer linear programming using the Pulp library.
 
-    def __init__(self, p=0.4, verbose=False, metrics=[]):
+    It inherits from the PromptOptimize base class.
+    """
+
+    def __init__(self, p: float = 0.4, verbose: bool = False, metrics: list = []):
+        """
+        Initializes the PulpOptim.
+
+        Args:
+            p (float, optional): The aggression factor controlling the reduction in the number of tokens. Defaults to 0.4.
+            verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
+            metrics (list, optional): A list of metric names to evaluate during optimization. Defaults to an empty list.
+        """
         super().__init__(verbose, metrics)
         self.aggression = p  # will reduce num tokens by aggression*100%
 
-    def run(self, prompt):
+    def run(self, prompt: str) -> str:
+        """
+        Runs the prompt optimization technique on the prompt.
+
+        Args:
+            prompt (str): The prompt text.
+
+        Returns:
+            str: The optimized prompt text.
+        """
         tokens = prompt.split()
         target_length = int(len(tokens) * (1 - self.aggression))
 

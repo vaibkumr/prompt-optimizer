@@ -7,12 +7,49 @@ from prompt_optimizer.poptim.base import PromptOptimize
 
 
 class SynonymReplaceOptim(PromptOptimize):
-    def __init__(self, verbose=False, metrics=[], p=0.5):
+    """
+    SynonymReplaceOptim is a prompt optimization technique that replaces words in the prompt with their synonyms.
+
+    Synonyms are words that have similar meanings to the original word. This technique aims to diversify the language used in the prompt.
+
+    Usage:
+    ```
+    synonym_optim = SynonymReplaceOptim(p=0.5)
+    optimized_prompt = synonym_optim(prompt)
+    ```
+
+    Args:
+        verbose (bool, optional): If True, print verbose information during optimization. Defaults to False.
+        metrics (list, optional): List of metrics to evaluate the optimization. Defaults to [].
+        p (float, optional): Probability of replacing a word with a synonym. Defaults to 0.5.
+
+    Attributes:
+        tokenizer (tiktoken.Tokenizer): A tokenizer for encoding words.
+    """
+
+    def __init__(self, verbose: bool = False, metrics: list = [], p: float = 0.5):
+        """
+        Initializes the SynonymReplaceOptim object with the specified parameters.
+
+        Args:
+            verbose (bool, optional): If True, print verbose information during optimization. Defaults to False.
+            metrics (list, optional): List of metrics to evaluate the optimization. Defaults to [].
+            p (float, optional): Probability of replacing a word with a synonym. Defaults to 0.5.
+        """
         super().__init__(verbose, metrics)
         self.p = p
         self.tokenizer = tiktoken.get_encoding("cl100k_base")
 
-    def get_word_pos(self, word):
+    def get_word_pos(self, word: str) -> str:
+        """
+        Get the part of speech of a word.
+
+        Args:
+            word (str): The word.
+
+        Returns:
+            str: The part of speech of the word.
+        """
         pos = wordnet.synset(word + ".n.01").pos()
         if pos.startswith("n"):
             return "n"
@@ -25,14 +62,17 @@ class SynonymReplaceOptim(PromptOptimize):
         else:
             return None
 
-    def syn_replace(self, word):
-        best_replacement = word
-        # try:
-        #     pos = self.get_word_pos(word)
-        # except:
-        #     return best_replacement
+    def syn_replace(self, word: str) -> str:
+        """
+        Replace a word with its synonym.
 
-        # if pos:
+        Args:
+            word (str): The word.
+
+        Returns:
+            str: The best replacement synonym for the word.
+        """
+        best_replacement = word
         best_l = len(self.tokenizer.encode(word))
         if best_l > 1:
             for syn in wordnet.synsets(word):
@@ -43,8 +83,16 @@ class SynonymReplaceOptim(PromptOptimize):
                         best_replacement = synonym_word
         return best_replacement
 
-    def run(self, prompt):
-        """higher p = more replacements"""
+    def run(self, prompt: str) -> str:
+        """
+        Replaces words in the prompt with their synonyms.
+
+        Args:
+            prompt (str): The input prompt.
+
+        Returns:
+            str: The optimized prompt with replaced synonyms.
+        """
         words = prompt.split()
         opti_words = []
         for word in words:

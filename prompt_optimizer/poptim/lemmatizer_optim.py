@@ -6,11 +6,33 @@ from prompt_optimizer.poptim.base import PromptOptimize
 
 
 class LemmatizerOptim(PromptOptimize):
-    def __init__(self, verbose=False, metrics=[]):
+    """
+    LemmatizerOptim is a prompt optimization technique based on lemmatization.
+
+    It inherits from the PromptOptimize base class.
+    """
+
+    def __init__(self, verbose: bool = False, metrics: list = []):
+        """
+        Initializes the LemmatizerOptim.
+
+        Args:
+            verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
+            metrics (list, optional): A list of metric names to evaluate during optimization. Defaults to an empty list.
+        """
         super().__init__(verbose, metrics)
         self.lemmatizer = WordNetLemmatizer()
 
-    def get_wordnet_pos(self, word):
+    def get_wordnet_pos(self, word: str) -> str:
+        """
+        Maps the POS tag from NLTK to WordNet POS tags.
+
+        Args:
+            word (str): The word to determine the POS tag.
+
+        Returns:
+            str: The WordNet POS tag.
+        """
         tag = nltk.pos_tag([word])[0][1][0].upper()
         tag_dict = {
             "J": wordnet.ADJ,
@@ -20,7 +42,16 @@ class LemmatizerOptim(PromptOptimize):
         }
         return tag_dict.get(tag, wordnet.NOUN)
 
-    def run(self, prompt):
+    def run(self, prompt: str) -> str:
+        """
+        Runs the prompt optimization technique on the prompt.
+
+        Args:
+            prompt (str): The prompt text.
+
+        Returns:
+            str: The optimized prompt text.
+        """
         words = prompt.split()
         lemmatized_words = [
             self.lemmatizer.lemmatize(word, self.get_wordnet_pos(word))
