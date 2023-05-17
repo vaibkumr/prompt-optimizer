@@ -151,10 +151,10 @@ class NameReplaceOptim(PromptOptimize):
 
         mapping = dict(zip(name_list[: len(self.opti_names)], self.opti_names))
         return mapping
-    
+
     def opti_name_replace(self, text: str, mapping: dict) -> str:
         """
-        Replaces names in the text with optimized names based on the mapping.    
+        Replaces names in the text with optimized names based on the mapping.
 
         Args:
             text (str): The text to perform name replacement.
@@ -168,7 +168,7 @@ class NameReplaceOptim(PromptOptimize):
             text = text.replace(old_name, new_name)
         return text
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Runs the prompt optimization technique on the prompt.
 
@@ -181,4 +181,3 @@ class NameReplaceOptim(PromptOptimize):
         mapping = self.gen_name_map(prompt)
         opti_prompt = self.opti_name_replace(prompt, mapping)
         return opti_prompt
-

@@ -39,7 +39,7 @@ class StopWordOptim(PromptOptimize):
             nltk.download("stopwords")
             self.stop_words = set(nltk.corpus.stopwords.words("english"))
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Removes stop words from the prompt.
 

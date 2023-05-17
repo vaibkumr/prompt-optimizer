@@ -1,5 +1,7 @@
 from typing import Any, List
+
 from prompt_optimizer.poptim.base import PromptOptimize
+
 
 class Sequential:
     """

@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 from .logger import logger
+from .utils import protected_runner
 
 
 class PromptOptimize(ABC):
@@ -12,21 +13,25 @@ class PromptOptimize(ABC):
     This class inherits from ABC (Abstract Base Class).
     """
 
-    def __init__(self, verbose: bool = False, metrics: list = []):
+    def __init__(
+        self, verbose: bool = False, metrics: list = [], protect_tag: str = None
+    ):
         """
         Initializes the PromptOptimize.
 
         Args:
             verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
             metrics (list, optional): A list of metric names to evaluate during optimization. Defaults to an empty list.
+            protect_tag (str, optional): markup style tag string to indicate protected content that can't be deleted or modified. Defaults to `None`.
         """
-        self.metrics = metrics
         self.verbose = verbose
+        self.metrics = metrics
+        self.protect_tag = protect_tag
 
     @abstractmethod
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
-        Abstract method to run the prompt optimization technique.
+        Abstract method to run the prompt optimization technique on a prompt.
 
         This method must be implemented by subclasses.
 
@@ -38,9 +43,22 @@ class PromptOptimize(ABC):
         """
         pass
 
-    def run_json(self, json_data: dict) -> dict:
+    @protected_runner
+    def run(self, prompt: str) -> str:
         """
-        Applies prompt optimization to a JSON data object.
+        Wrapper around `optimize` to do protected optimization.
+
+        Args:
+            prompt (str): The prompt text.
+
+        Returns:
+            str: The protected optimized prompt text.
+        """
+        return self.optimize(prompt)
+
+    def run_json(self, json_data: list, skip_system=False) -> dict:
+        """
+        Applies prompt optimization to the JSON request object.
 
         Args:
             json_data (dict): The JSON data object.
@@ -48,48 +66,80 @@ class PromptOptimize(ABC):
         Returns:
             dict: The JSON data object with the content field replaced by the optimized prompt text.
         """
-        json_data["content"] = self.run(json_data["content"])
+        for data in json_data:
+            if skip_system and data["role"] == "system":
+                continue
+            data["content"] = self.run(data["content"])
         return json_data
 
-    def batch_run(self, data: list, skip_system: bool = False, json: bool = True) -> list:
+    # def batch_run(
+    #     self, data: list, skip_system: bool = False, json: bool = True
+    # ) -> list:
+    #     """
+    #     Applies prompt optimization to a batch of data.
+
+    #     Args:
+    #         data (list): A list of prompts or JSON data objects.
+    #         skip_system (bool, optional): Flag indicating whether to skip system role data objects. Defaults to False.
+    #         json (bool, optional): Flag indicating whether the input data is in JSON format. Defaults to True.
+
+    #     Returns:
+    #         list: A list of optimized prompts or JSON data objects.
+    #     """
+    #     optimized_data = []
+    #     for d in data:
+    #         if json:
+    #             optimized_data.append(self.run_json(d, skip_system))
+    #         else:
+    #             optimized_data.append(self.run(d))
+    #     return optimized_data
+
+    def __call__(
+        self,
+        prompt_data: list,
+        skip_system: bool = False,
+        json: bool = False,
+    ) -> list:
         """
-        Applies prompt optimization to a batch of data.
+        Process the prompt data and return optimized prompt data.
 
         Args:
-            data (list): A list of prompts or JSON data objects.
-            skip_system (bool, optional): Flag indicating whether to skip system role data objects. Defaults to False.
-            json (bool, optional): Flag indicating whether the input data is in JSON format. Defaults to True.
+            prompt_data: A list of prompt data.
+            skip_system: A boolean indicating whether to skip system prompts. Default is False.
+            json: A boolean indicating whether the prompt data is in JSON format. Default is False.
 
         Returns:
-            list: A list of optimized prompts or JSON data objects.
+            A list of optimized prompt data.
+
+        Raises:
+            AssertionError: If skip_system is True and json is False.
+
         """
-        optimized_data = []
-        for d in data:
+
+        if skip_system:
+            assert json, "Can't skip system prompts without batched json format"
+
+        if json:
+            opti_prompt_data = self.run_json(prompt_data, skip_system)
+        else:
+            opti_prompt_data = self.run(prompt_data)
+
+        metric_results = []
+        for metric in self.metrics:
             if json:
-                if skip_system and d["role"] == "system":
-                    optimized_data.append(d)
-                else:
-                    optimized_data.append(self.run_json(d))
+                metric_result = metric.batch_run(
+                    prompt_data, opti_prompt_data, skip_system, json
+                )
             else:
-                optimized_data.append(self.run(d))
-        return optimized_data
+                metric_result = metric.run(prompt_data, opti_prompt_data)
 
-    def __call__(self, prompt: str) -> str:
-        """
-        Calls the run method to perform prompt optimization.
+            metric_results.append(metric_result)
 
-        Args:
-            prompt (str): The prompt text.
-
-        Returns:
-            str: The optimized prompt text.
-        """
-        opti_prompt = self.run(prompt)
         if self.verbose:
-            for metric in self.metrics:
-                out = metric(prompt, opti_prompt)
-                for key in out:
-                    logger.info(f"Metric {key}: {out[key]:.3f}")
-                    logger.info(f"Prompt Before: {prompt}")
-                    logger.info(f"Prompt After: {opti_prompt}")
-        return opti_prompt
+            logger.info(f"Prompt Data Before: {prompt_data}")
+            logger.info(f"Prompt Data After: {opti_prompt_data}")
+            for metric_result in metric_results:
+                for key in metric_result:
+                    logger.info(f"{key}: {metric_result[key]:.3f}")
+
+        return opti_prompt_data

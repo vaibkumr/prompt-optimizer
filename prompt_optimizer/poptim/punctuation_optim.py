@@ -10,7 +10,7 @@ class PunctuationOptim(PromptOptimize):
     It inherits from the PromptOptimize base class.
     """
 
-    def __init__(self, verbose: bool = False, metrics: list = []):
+    def __init__(self, verbose: bool = False, metrics: list = [], **kwargs):
         """
         Initializes the PunctuationOptim.
 
@@ -18,9 +18,9 @@ class PunctuationOptim(PromptOptimize):
             verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
             metrics (list, optional): A list of metric names to evaluate during optimization. Defaults to an empty list.
         """
-        super().__init__(verbose, metrics)
+        super().__init__(verbose, metrics, **kwargs)
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Runs the prompt optimization technique on the prompt.
 

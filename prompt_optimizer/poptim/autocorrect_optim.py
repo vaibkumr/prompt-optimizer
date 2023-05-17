@@ -22,7 +22,7 @@ class AutocorrectOptim(PromptOptimize):
         super().__init__(verbose, metrics)
         self.spell = Speller(lang="en", fast=fast)
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Applies autocorrection to the prompt text.
 

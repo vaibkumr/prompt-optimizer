@@ -18,6 +18,7 @@ class EntropyOptim(PromptOptimize):
         p: float = 0.9,
         verbose: bool = False,
         metrics: list = [],
+        **kwargs,
     ):
         """
         Initializes the EntropyOptim.
@@ -28,7 +29,7 @@ class EntropyOptim(PromptOptimize):
             verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
             metrics (list, optional): A list of metric names to evaluate during optimization. Defaults to an empty list.
         """
-        super().__init__(verbose, metrics)
+        super().__init__(verbose, metrics, **kwargs)
         self.p = p * 100
         self.model_name = model_name
         self.load_mlm_model_tokenizer()
@@ -98,7 +99,7 @@ class EntropyOptim(PromptOptimize):
         optimized_prompt = self.tokenizer.decode(filtered_tokens)
         return optimized_prompt
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Runs the prompt optimization technique on the prompt.
             Args:

@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from collections import defaultdict
 
 
 class Metric(ABC):
@@ -52,19 +53,26 @@ class Metric(ABC):
         Returns:
             float: The average metric value across the batch.
         """
-        avg_m = 0
+        avg_m = defaultdict(float)
         n = 0
         for pb, pa in zip(prompts_before, prompts_after):
             if json:
                 if skip_system and pb["role"] == "system":
                     continue
                 else:
-                    avg_m += self.run_json(pb, pa)[self.key]
+                    res = self.run_json(pb, pa)
                     n += 1
             else:
-                avg_m += self.run(pb, pa)[self.key]
+                res = self.run(pb, pa)
                 n += 1
-        return avg_m / n
+
+            for key in res:
+                avg_m[key] += res[key]
+
+        for key in avg_m:
+            avg_m[key] /= n
+
+        return avg_m
 
     def __call__(self, prompt_before: str, prompt_after: str) -> dict:
         """

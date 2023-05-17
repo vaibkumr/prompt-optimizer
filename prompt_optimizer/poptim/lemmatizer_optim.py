@@ -42,9 +42,9 @@ class LemmatizerOptim(PromptOptimize):
         }
         return tag_dict.get(tag, wordnet.NOUN)
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
-        Runs the prompt optimization technique on the prompt.
+        Runs the lemmatizer prompt optimization technique on the prompt.
 
         Args:
             prompt (str): The prompt text.

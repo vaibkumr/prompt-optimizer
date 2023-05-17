@@ -83,7 +83,7 @@ class SynonymReplaceOptim(PromptOptimize):
                         best_replacement = synonym_word
         return best_replacement
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Replaces words in the prompt with their synonyms.
 

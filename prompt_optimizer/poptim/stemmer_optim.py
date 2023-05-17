@@ -35,7 +35,7 @@ class StemmerOptim(PromptOptimize):
         super().__init__(verbose, metrics)
         self.stemmer = PorterStemmer()
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Applies stemming to the prompt.
 

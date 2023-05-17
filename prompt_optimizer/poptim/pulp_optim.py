@@ -22,7 +22,7 @@ class PulpOptim(PromptOptimize):
         super().__init__(verbose, metrics)
         self.aggression = p  # will reduce num tokens by aggression*100%
 
-    def run(self, prompt: str) -> str:
+    def optimize(self, prompt: str) -> str:
         """
         Runs the prompt optimization technique on the prompt.
 
