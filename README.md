@@ -5,31 +5,25 @@ Minimize LLM token complexity to save API costs and computations.
 
 
 # Features
-- Plug and Play Optimizers: Minimize token complexity using optimization methods without any access to weights, logits or decoding algorithm. Directly applicable to prompt data.
-- Protected Tags: Special protected tags to mark important sections of prompt that should not be removed/modified.
-- Multiple Input Format Support: Optmization of string, batches of strings and JSON prompt data with an option to skip system prompts.
-- Sequential Optimization: Chain different optimizers together sequentially.
-- Optimization Metrics: Number of tokens reduced and semantic similarity before and after optimization.
+- **Plug and Play Optimizers:** Minimize token complexity using optimization methods without any access to weights, logits or decoding algorithm. Directly applicable to virtually all NLU systems.
+- **Protected Tags:** Special protected tags to mark important sections of prompt that should not be removed/modified.
+- **Multiple Input Format Support:** Optmization of string, batches of strings and JSON prompt data with an option to skip system prompts.
+- **Sequential Optimization:** Chain different optimizers together sequentially.
+- **Optimization Metrics:** Number of tokens reduced and semantic similarity before and after optimization.
 
 # Why?
-- Token Complexity: Amount of prompt tokens required to achieve a given task.
-- Large Language Models read text after breaking them into tokens. 
-- The pricing of APIs is linearly propotional to number of tokens and the computational complexity of transformer models is usually quadratic to the number of tokens. 
-- For large businesses, saving 10% on token count can lead to saving 100k USD per 1M USD.
-- Some models have small context length, prompt optimizers can help fit larger documents into the limited context length.
-- All optimizers in this library make no assumption about underlying LLM and assume no access to the weights, logits or the decoding process making them applicable to virtually all NLU systems.
-
+- **Minimize Token Complexity:** Token Complexity is the amount of prompt tokens required to achieve a given task. Reducing token complexity corresponds to linearly reducing API costs and quadratically reducing computational complexity of usual transformer models.
+- **Save Money:** For large businesses, saving 10% on token count can lead to saving 100k USD per 1M USD.
+- **Extend Limitations:** Some models have small context lengths, prompt optimizers can help them process larger than context documents.
 
 # Why does it work?
 1. LLMs are powerful, they can infill missing information.
-2. Language is bulky, large words and phrases can be replaced by smaller ones.
+2. Natural language is bulky, large words and phrases can be replaced by smaller ones.
 
 | Prompt | # Tokens | Correct Response? |  
 | ------------------------------------------------------- | ---------- | ------------------- |  
 | Who is the president of the United States of America? | 11 | ✅ |  
 | Who president US | 3  (-72%) | ✅ |
-
-
 
 
 # Disclaimer
