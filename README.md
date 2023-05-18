@@ -1,7 +1,20 @@
-# PromptOptimizer
-Minimize LLM token complexity to save API costs and model computations.
+<div align="center">
 
-[![lint](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml) [![test](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml) [![linkcheck](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+  ## PromptOptimizer
+  
+  <<img src="evaluations/artifacts/logo.png" alt="kevin inspired logo" />
+
+  Minimize LLM token complexity to save API costs and model computations.
+
+</div>
+<div align="center">
+
+[![lint](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml) 
+[![test](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml) 
+[![linkcheck](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
 
 
 # Features
@@ -10,7 +23,7 @@ Minimize LLM token complexity to save API costs and model computations.
 - **Multiple Input Format Support:** Optmization of string, batches of strings and JSON prompt data with an option to skip system prompts.
 - **Sequential Optimization:** Chain different optimizers together sequentially.
 - **Optimization Metrics:** Number of tokens reduced and semantic similarity before and after optimization.
-- **Langhcain Support:** Supports langchain style prompt chains.
+- **Langhcain and JSON Support:** Supports langchain style prompt chains and OpenAI request JSON Object.
  
 # Why?
 - **Minimize Token Complexity:** Token Complexity is the amount of prompt tokens required to achieve a given task. Reducing token complexity corresponds to linearly reducing API costs and quadratically reducing computational complexity of usual transformer models.
@@ -18,13 +31,19 @@ Minimize LLM token complexity to save API costs and model computations.
 - **Extend Limitations:** Some models have small context lengths, prompt optimizers can help them process larger than context documents.
 
 # Why does it work?
+
 1. LLMs are powerful, they can infill missing information.
 2. Natural language is bulky, large words and phrases can be replaced by smaller ones.
+
+<div style="text-align: center;">
+  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
+</div>
 
 | Prompt | # Tokens | Correct Response? |  
 | ------------------------------------------------------- | ---------- | ------------------- |  
 | Who is the president of the United States of America? | 11 | ✅ |  
 | Who president US | 3  (-72%) | ✅ |
+
 
 # Installation
 ### Quick Installation

@@ -63,6 +63,7 @@ class Metric(ABC):
                     continue
                 else:
                     res = self.run_json(pb, pa)
+                    n += 1
 
             elif langchain:
                 if skip_system and pb.role == "system":

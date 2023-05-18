@@ -8,5 +8,5 @@ def token_metric(before_samples_dir, after_samples_dir, n_samples_max=100):
     metric = TokenMetric()
     avg = 0
     for json_before, json_after in zip(before, after):
-        avg += metric.batch_run(json_before["input"], json_after["input"])
+        avg += metric.batch_run(json_before["input"], json_after["input"], json=True)[metric.key]
     return avg / len(before)

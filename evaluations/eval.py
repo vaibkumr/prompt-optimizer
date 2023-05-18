@@ -41,7 +41,7 @@ def run_logiqa(exp_name, p_optimizer, n_samples_max=100):
             json_data["input"] = make_errors.run(json_data["input"])
 
         if p_optimizer is not None:
-            json_data["input"] = p_optimizer.batch_run(
+            json_data["input"] = p_optimizer(
                 json_data["input"], skip_system=False, json=True
             )
 
@@ -52,9 +52,9 @@ def run_logiqa(exp_name, p_optimizer, n_samples_max=100):
     tokens_opti_metric = compute_metric.token_metric(samples_path, opti_samples_path)
 
     # Compute Evals metric
-    utils.run_bash(
-        f"oaieval gpt-3.5-turbo temp --record_path {res_path} --log_to_file {log_path}"
-    )
+    # utils.run_bash(
+    #     f"oaieval gpt-3.5-turbo temp --record_path {res_path} --log_to_file {log_path}"
+    # )
     for line in utils.read_jsonl(res_path):
         if "final_report" in line:
             accuracy = line["final_report"]["accuracy"]
@@ -82,11 +82,11 @@ if __name__ == "__main__":
         # "SynonymReplace_Optim_p_1.0": SynonymReplaceOptim(p=1),
         # "Lemmatizer_Optim": LemmatizerOptim(),
         # "Stemmer_Optim": StemmerOptim(),
-        # "NameReplace_Optim": NameReplaceOptim(),
+        "NameReplace_Optim": NameReplaceOptim(),
         # "Punctuation_Optim": PunctuationOptim(),
         # "Autocorrect_Optim": AutocorrectOptim(),
-        "Pulp_Optim_p_0.05": PulpOptim(p=0.05),
-        "Pulp_Optim_p_0.1": PulpOptim(p=0.1),
+        # "Pulp_Optim_p_0.05": PulpOptim(p=0.05),
+        # "Pulp_Optim_p_0.1": PulpOptim(p=0.1),
     }
     for exp_name in EXPERIMENTS:
         p_optimizer = EXPERIMENTS[exp_name]

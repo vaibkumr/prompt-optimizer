@@ -12,8 +12,6 @@ from prompt_optimizer.poptim.stemmer_optim import StemmerOptim
 from prompt_optimizer.poptim.stop_word_optim import StopWordOptim
 from prompt_optimizer.poptim.synonym_replace_optim import SynonymReplaceOptim
 
-
-
 __all__ = [
     "Sequential",
     "PromptOptimize",

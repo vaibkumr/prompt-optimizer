@@ -1,7 +1,7 @@
 import random
 
-import tiktoken
 import nltk
+import tiktoken
 from nltk.corpus import wordnet
 
 from prompt_optimizer.poptim.base import PromptOptimize

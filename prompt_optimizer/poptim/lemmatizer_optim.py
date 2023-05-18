@@ -1,6 +1,5 @@
 import nltk
 from nltk.corpus import wordnet
-
 from nltk.stem import WordNetLemmatizer
 
 from prompt_optimizer.poptim.base import PromptOptimize
