@@ -20,7 +20,6 @@
 # Features
 - **Plug and Play Optimizers:** Minimize token complexity using optimization methods without any access to weights, logits or decoding algorithm. Directly applicable to virtually all NLU systems.
 - **Protected Tags:** Special protected tags to mark important sections of prompt that should not be removed/modified.
-- **Multiple Input Format Support:** Optmization of string, batches of strings and JSON prompt data with an option to skip system prompts.
 - **Sequential Optimization:** Chain different optimizers together sequentially.
 - **Optimization Metrics:** Number of tokens reduced and semantic similarity before and after optimization.
 - **Langhcain and JSON Support:** Supports langchain style prompt chains and OpenAI request JSON Object.
