@@ -39,7 +39,8 @@ class Metric(ABC):
         prompts_before: list,
         prompts_after: list,
         skip_system: bool = False,
-        json: bool = True,
+        json: bool = False,
+        langchain: bool = False,
     ) -> float:
         """
         Runs the metric on a batch of prompts.
@@ -48,7 +49,8 @@ class Metric(ABC):
             prompts_before (list): List of prompts before the modification.
             prompts_after (list): List of prompts after the modification.
             skip_system (bool, optional): Whether to skip prompts with "system" role. Defaults to False.
-            json (bool, optional): Whether the prompts are JSON data. Defaults to True.
+            json (bool, optional): Whether the prompts are JSON data. Defaults to False.
+            langchain (bool, optional): Whether the prompts are langchain chat data. Defaults to False.
 
         Returns:
             float: The average metric value across the batch.
@@ -61,7 +63,14 @@ class Metric(ABC):
                     continue
                 else:
                     res = self.run_json(pb, pa)
+
+            elif langchain:
+                if skip_system and pb.role == "system":
+                    continue
+                else:
+                    res = self.run(pb.content, pa.content)
                     n += 1
+
             else:
                 res = self.run(pb, pa)
                 n += 1

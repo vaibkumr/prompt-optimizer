@@ -1,5 +1,5 @@
 # PromptOptimizer
-Minimize LLM token complexity to save API costs and computations.
+Minimize LLM token complexity to save API costs and model computations.
 
 [![lint](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml) [![test](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml) [![linkcheck](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -10,7 +10,8 @@ Minimize LLM token complexity to save API costs and computations.
 - **Multiple Input Format Support:** Optmization of string, batches of strings and JSON prompt data with an option to skip system prompts.
 - **Sequential Optimization:** Chain different optimizers together sequentially.
 - **Optimization Metrics:** Number of tokens reduced and semantic similarity before and after optimization.
-
+- **Langhcain Support:** Supports langchain style prompt chains.
+ 
 # Why?
 - **Minimize Token Complexity:** Token Complexity is the amount of prompt tokens required to achieve a given task. Reducing token complexity corresponds to linearly reducing API costs and quadratically reducing computational complexity of usual transformer models.
 - **Save Money:** For large businesses, saving 10% on token count can lead to saving 100k USD per 1M USD.
@@ -25,12 +26,20 @@ Minimize LLM token complexity to save API costs and computations.
 | Who is the president of the United States of America? | 11 | ✅ |  
 | Who president US | 3  (-72%) | ✅ |
 
+# Installation
+### Quick Installation
+```pip install prompt-optimizer```
+
+### Install from source
+```bash
+git clone https://github.com/TimeTraveller-San/prompt-optimizer.git;
+cd prompt-optimizer;
+pip install -e .
+```
 
 # Disclaimer
 There is a compression vs performance tradeoff -- the increase in compression comes at the cost of loss in model performance. The tradeoff can be greatly mitigated by chosing the right optimize for a given task. There is no single optimizer for all cases. There is no Adam here.
 
-# Installation
-```pip install prompt-optimizer```
 
 # Getting started
 

@@ -1,3 +1,4 @@
+import copy
 from abc import ABC, abstractmethod
 
 from .logger import logger
@@ -56,7 +57,7 @@ class PromptOptimize(ABC):
         """
         return self.optimize(prompt)
 
-    def run_json(self, json_data: list, skip_system=False) -> dict:
+    def run_json(self, json_data: list, skip_system: bool = False) -> dict:
         """
         Applies prompt optimization to the JSON request object.
 
@@ -71,6 +72,28 @@ class PromptOptimize(ABC):
                 continue
             data["content"] = self.run(data["content"])
         return json_data
+    
+    def run_langchain(self, langchain_data: list, skip_system: bool = False):
+        """
+        Runs the prompt optimizer on langchain chat data.
+
+        Args:
+            langchain_data (list): The langchain data containing 'type' and 'content' fields.
+            skip_system (bool, optional): Whether to skip data with type 'system'. Defaults to False.
+
+        Returns:
+            list: The modified langchain data.
+
+        """        
+
+        optim_langchain_data = copy.deepcopy(langchain_data)
+
+        for data in optim_langchain_data:
+            if skip_system and data.type == "system":
+                continue
+            data.content = self.run(data.content)
+
+        return optim_langchain_data    
 
     # def batch_run(
     #     self, data: list, skip_system: bool = False, json: bool = True
@@ -99,6 +122,7 @@ class PromptOptimize(ABC):
         prompt_data: list,
         skip_system: bool = False,
         json: bool = False,
+        langchain: bool = False,
     ) -> list:
         """
         Process the prompt data and return optimized prompt data.
@@ -107,6 +131,7 @@ class PromptOptimize(ABC):
             prompt_data: A list of prompt data.
             skip_system: A boolean indicating whether to skip system prompts. Default is False.
             json: A boolean indicating whether the prompt data is in JSON format. Default is False.
+            langchain: A boolean indicating whether the prompt data is in langchain format. Default is False.
 
         Returns:
             A list of optimized prompt data.
@@ -116,19 +141,23 @@ class PromptOptimize(ABC):
 
         """
 
+        assert not (json and langchain), "Data type can't be both json and langchain"
+
         if skip_system:
-            assert json, "Can't skip system prompts without batched json format"
+            assert json or langchain, "Can't skip system prompts without batched json format"
 
         if json:
             opti_prompt_data = self.run_json(prompt_data, skip_system)
+        elif langchain:
+            opti_prompt_data = self.run_langchain(prompt_data, skip_system)
         else:
             opti_prompt_data = self.run(prompt_data)
 
         metric_results = []
         for metric in self.metrics:
-            if json:
+            if json or langchain:
                 metric_result = metric.batch_run(
-                    prompt_data, opti_prompt_data, skip_system, json
+                    prompt_data, opti_prompt_data, skip_system, json, langchain
                 )
             else:
                 metric_result = metric.run(prompt_data, opti_prompt_data)
