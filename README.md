@@ -40,8 +40,7 @@
 | Who is the president of the United States of America? | 11 | ✅ |  
 | Who president US | 3  (-72%) | ✅ |
 
-
-<div style="text-align: center;">
+<div align="center">
   <img src="evaluations/artifacts/kevin.gif" alt="Image" />
 </div>
 
