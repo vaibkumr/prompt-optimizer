@@ -2,7 +2,7 @@
 
   ## PromptOptimizer
   
-  <<img src="evaluations/artifacts/logo.png" alt="kevin inspired logo" />
+  <img width="250" src="evaluations/artifacts/logo.png" alt="kevin inspired logo" />
 
   Minimize LLM token complexity to save API costs and model computations.
 
