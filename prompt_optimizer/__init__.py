@@ -1,3 +1,4 @@
+from prompt_optimizer.visualize import StringDiffer
 from prompt_optimizer.metric import BERTScoreMetric, Metric, TokenMetric
 from prompt_optimizer.poptim import (
     LemmatizerOptim,
@@ -10,6 +11,7 @@ from prompt_optimizer.poptim import (
 )
 
 __all__ = [
+    "StringDiffer",
     "Metric",
     "BERTScoreMetric",
     "TokenMetric",

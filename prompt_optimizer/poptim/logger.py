@@ -2,7 +2,6 @@
 
 import logging
 
-
 def configure_logger(log_file=None):
     logger.setLevel(logging.INFO)
 
