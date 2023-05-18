@@ -35,15 +35,15 @@
 1. LLMs are powerful, they can infill missing information.
 2. Natural language is bulky, large words and phrases can be replaced by smaller ones.
 
-<div style="text-align: center;">
-  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
-</div>
-
 | Prompt | # Tokens | Correct Response? |  
 | ------------------------------------------------------- | ---------- | ------------------- |  
 | Who is the president of the United States of America? | 11 | ✅ |  
 | Who president US | 3  (-72%) | ✅ |
 
+
+<div style="text-align: center;">
+  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
+</div>
 
 # Installation
 ### Quick Installation
