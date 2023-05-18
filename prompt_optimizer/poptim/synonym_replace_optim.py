@@ -1,14 +1,8 @@
 import random
 
 import tiktoken
-
-try:
-    from nltk.corpus import wordnet
-except ImportError:
-    import nltk
-
-    nltk.download("wordnet")
-    from nltk.corpus import wordnet
+import nltk
+from nltk.corpus import wordnet
 
 from prompt_optimizer.poptim.base import PromptOptimize
 
@@ -45,6 +39,7 @@ class SynonymReplaceOptim(PromptOptimize):
         """
         super().__init__(verbose, metrics)
         self.p = p
+        nltk.download("wordnet")
         self.tokenizer = tiktoken.get_encoding("cl100k_base")
 
     def get_word_pos(self, word: str) -> str:

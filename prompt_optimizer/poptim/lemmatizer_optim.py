@@ -1,10 +1,5 @@
 import nltk
-
-try:
-    from nltk.corpus import wordnet
-except ImportError:
-    nltk.download("wordnet")
-    from nltk.corpus import wordnet
+from nltk.corpus import wordnet
 
 from nltk.stem import WordNetLemmatizer
 
@@ -28,6 +23,8 @@ class LemmatizerOptim(PromptOptimize):
         """
         super().__init__(verbose, metrics)
         self.lemmatizer = WordNetLemmatizer()
+        nltk.download("averaged_perceptron_tagger")
+        nltk.download("wordnet")
 
     def get_wordnet_pos(self, word: str) -> str:
         """
