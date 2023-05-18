@@ -29,11 +29,6 @@
 - **Save Money:** For large businesses, saving 10% on token count can lead to saving 100k USD per 1M USD.
 - **Extend Limitations:** Some models have small context lengths, prompt optimizers can help them process larger than context documents.
 
-# Why does it work?
-
-1. LLMs are powerful, they can infill missing information.
-2. Natural language is bulky, large words and phrases can be replaced by smaller ones.
-
 | Prompt | # Tokens | Correct Response? |  
 | ------------------------------------------------------- | ---------- | ------------------- |  
 | Who is the president of the United States of America? | 11 | ✅ |  
