@@ -72,7 +72,7 @@ class PromptOptimize(ABC):
                 continue
             data["content"] = self.run(data["content"])
         return json_data
-    
+
     def run_langchain(self, langchain_data: list, skip_system: bool = False):
         """
         Runs the prompt optimizer on langchain chat data.
@@ -84,7 +84,7 @@ class PromptOptimize(ABC):
         Returns:
             list: The modified langchain data.
 
-        """        
+        """
 
         optim_langchain_data = copy.deepcopy(langchain_data)
 
@@ -93,7 +93,7 @@ class PromptOptimize(ABC):
                 continue
             data.content = self.run(data.content)
 
-        return optim_langchain_data    
+        return optim_langchain_data
 
     # def batch_run(
     #     self, data: list, skip_system: bool = False, json: bool = True
@@ -144,7 +144,9 @@ class PromptOptimize(ABC):
         assert not (json and langchain), "Data type can't be both json and langchain"
 
         if skip_system:
-            assert json or langchain, "Can't skip system prompts without batched json format"
+            assert (
+                json or langchain
+            ), "Can't skip system prompts without batched json format"
 
         if json:
             opti_prompt_data = self.run_json(prompt_data, skip_system)

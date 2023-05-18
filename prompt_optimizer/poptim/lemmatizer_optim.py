@@ -1,5 +1,11 @@
 import nltk
-from nltk.corpus import wordnet
+
+try:
+    from nltk.corpus import wordnet
+except ImportError:
+    nltk.download("wordnet")
+    from nltk.corpus import wordnet
+
 from nltk.stem import WordNetLemmatizer
 
 from prompt_optimizer.poptim.base import PromptOptimize

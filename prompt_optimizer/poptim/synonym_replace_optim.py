@@ -1,7 +1,14 @@
 import random
 
 import tiktoken
-from nltk.corpus import wordnet
+
+try:
+    from nltk.corpus import wordnet
+except ImportError:
+    import nltk
+
+    nltk.download("wordnet")
+    from nltk.corpus import wordnet
 
 from prompt_optimizer.poptim.base import PromptOptimize
 
