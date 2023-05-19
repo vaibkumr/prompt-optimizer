@@ -9,18 +9,11 @@ class StopWordOptim(PromptOptim):
 
     Stop words are commonly used words (e.g., "the", "is", "in") that are often considered insignificant in natural language processing tasks.
 
-    Usage:
-    ```
-    stopword_optim = StopWordOptim()
-    optimized_prompt = stopword_optim(prompt)
-    ```
-
-    Args:
-        verbose (bool, optional): If True, print verbose information during optimization. Defaults to False.
-        metrics (list, optional): List of metrics to evaluate the optimization. Defaults to [].
-
-    Attributes:
-        stop_words (set): A set of stop words in the English language.
+    Example:
+        >>> from prompt_optimizer.poptim import StopWordOptim
+        >>> p_optimizer = StopWordOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
 
     """
 

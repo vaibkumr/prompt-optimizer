@@ -7,5 +7,5 @@ The following chart shows the trade-off for different values of `p` as evaluated
 
 
 <div align="center">
-  <img src="../../evaluations/artifacts/tradeoff.png" alt="tradeoff" />
+  <img src="../_static/tradeoff.png" alt="tradeoff" />
 </div>

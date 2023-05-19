@@ -8,6 +8,11 @@ class BERTScoreMetric(Metric):
     """
     BERTScoreMetric is a metric that calculates precision, recall, and F1 score based on BERT embeddings.
     It inherits from the Metric base class.
+
+    Example:
+        >>> from prompt_optimizer.metric import BERTScoreMetric
+        >>> metric = BERTScoreMetric()
+        >>> res = metric("default prompt...", "optimized prompt...")
     """
 
     def __init__(self):

@@ -14,7 +14,10 @@ It offers a range of optimizers to achieve this optimization while maintaining t
 
 Disclaimer
 ----------------
-There is a compression vs performance tradeoff -- the increase in compression comes at the cost of loss in model performance. The tradeoff can be greatly mitigated by chosing the right optimize for a given task. There is no single optimizer for all cases. There is no Adam here.
+There is a compression vs performance tradeoff -- the increase in compression comes at the cost of loss in model performance. The tradeoff can be greatly mitigated by chosing the right optimize for a given task. There is no single optimizer for all cases. There is no Adam here. 
+
+Read more about this in `Cost-Performance Tradeoff <./theory/cost_performance_tradeoff.html>`_
+
 
 
 Getting Started
@@ -119,5 +122,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

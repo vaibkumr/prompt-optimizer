@@ -10,6 +10,12 @@ class LemmatizerOptim(PromptOptim):
     LemmatizerOptim is a prompt optimization technique based on lemmatization.
 
     It inherits from the PromptOptim base class.
+
+    Example:
+        >>> from prompt_optimizer.poptim import LemmatizerOptim
+        >>> p_optimizer = LemmatizerOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
     """
 
     def __init__(self, verbose: bool = False, metrics: list = []):

@@ -9,18 +9,11 @@ class StemmerOptim(PromptOptim):
 
     Stemming reduces words to their base or root form, removing suffixes and prefixes.
 
-    Usage:
-    ```
-    stemmer = StemmerOptim()
-    optimized_prompt = stemmer(prompt)
-    ```
-
-    Args:
-        verbose (bool, optional): If True, print verbose information during optimization. Defaults to False.
-        metrics (list, optional): List of metrics to evaluate the optimization. Defaults to [].
-
-    Attributes:
-        stemmer (PorterStemmer): The stemmer object used for stemming words.
+    Example:
+        >>> from prompt_optimizer.poptim import StemmerOptim
+        >>> p_optimizer = StemmerOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
 
     """
 

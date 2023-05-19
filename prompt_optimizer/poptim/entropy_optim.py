@@ -7,15 +7,30 @@ from prompt_optimizer.poptim.base import PromptOptim
 
 class EntropyOptim(PromptOptim):
     """
-    EntropyOptim is a prompt optimization technique based on entropy values.
+    EntropyOptim is a prompt optimization technique based on entropy values of tokens.
+    A masked language model (`bert-base-cased` by default) is used to compute probabilities
+    of observing the current token based on right and left context. These probability values
+    are further used to compute the entropy values. Optimizer then moves on to remove the
+    tokens corresponding to lowest `p` percentile entropies.
 
-    It inherits from the PromptOptim base class.
+    The intuition of this method is that the model can infill low entropy i.e. low surprise
+    or highly probable tokens through the context. I will probably write a paper to explain
+    this in more detail.
+
+    `EntropyOptim` inherits from the PromptOptim base class.
+
+    Example:
+        >>> from prompt_optimizer.poptim import EntropyOptim
+        >>> p_optimizer = EntropyOptim(p=0.1)
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
+
     """
 
     def __init__(
         self,
         model_name: str = "bert-base-cased",
-        p: float = 0.9,
+        p: float = 0.1,
         verbose: bool = False,
         metrics: list = [],
         **kwargs,
@@ -25,7 +40,7 @@ class EntropyOptim(PromptOptim):
 
         Args:
             model_name (str, optional): The name of the pretrained masked language model. Defaults to "bert-base-cased".
-            p (float, optional): The percentile cutoff value for selecting tokens. Defaults to 0.9.
+            p (float, optional): The percentile cutoff value for selecting tokens. Defaults to `0.1`. Higher `p` means more compression.
             verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
             metrics (list, optional): A list of metric names to evaluate during optimization. Defaults to an empty list.
         """

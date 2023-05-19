@@ -62,11 +62,17 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+html_logo = "_static/logo_small.png"
 
 html_theme_options = {
-    "path_to_docs": "docs",
-    "repository_url": "https://github.com/vaibkumr/prompt-optimizer",
-    "use_repository_button": True,
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'bottom',
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
 }
 
 html_context = {

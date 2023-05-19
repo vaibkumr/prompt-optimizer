@@ -6,8 +6,17 @@ from prompt_optimizer.poptim.base import PromptOptim
 class NameReplaceOptim(PromptOptim):
     """
     NameReplaceOptim is a prompt optimization technique based on replacing names in the prompt.
+    Some names have lower token count (1) than others. Higher token count names can be replaced by
+    such names to reduce token complexity. `self.opti_names` contains the pre-made list of such names
+    for `tiktokenizer`. The list will need to be modified for other tokenizers.
 
     It inherits from the PromptOptim base class.
+
+    Example:
+        >>> from prompt_optimizer.poptim import NameReplaceOptim
+        >>> p_optimizer = NameReplaceOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
     """
 
     def __init__(self, verbose: bool = False, metrics: list = []):

@@ -6,8 +6,14 @@ from prompt_optimizer.metric.base import Metric
 class TokenMetric(Metric):
     """
     TokenMetric is a metric that calculates the optimization ratio based on the number of tokens reduced.
+    It uses `tiktoken` to tokenize strings and count the number of tokens.
 
     It inherits from the Metric base class.
+
+    Example:
+        >>> from prompt_optimizer.metric import TokenMetric
+        >>> metric = TokenMetric()
+        >>> res = metric("default prompt...", "optimized prompt...")
     """
 
     def __init__(self, tokenizer: str = "cl100k_base"):

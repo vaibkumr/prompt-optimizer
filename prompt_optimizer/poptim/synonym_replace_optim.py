@@ -11,21 +11,14 @@ class SynonymReplaceOptim(PromptOptim):
     """
     SynonymReplaceOptim is a prompt optimization technique that replaces words in the prompt with their synonyms.
 
-    Synonyms are words that have similar meanings to the original word. This technique aims to diversify the language used in the prompt.
+    Synonyms are words that have similar meanings to the original word. Sometimes a synonym has lower token count
+    than the original word.
 
-    Usage:
-    ```
-    synonym_optim = SynonymReplaceOptim(p=0.5)
-    optimized_prompt = synonym_optim(prompt)
-    ```
-
-    Args:
-        verbose (bool, optional): If True, print verbose information during optimization. Defaults to False.
-        metrics (list, optional): List of metrics to evaluate the optimization. Defaults to [].
-        p (float, optional): Probability of replacing a word with a synonym. Defaults to 0.5.
-
-    Attributes:
-        tokenizer (tiktoken.Tokenizer): A tokenizer for encoding words.
+    Example:
+        >>> from prompt_optimizer.poptim import SynonymReplaceOptim
+        >>> p_optimizer = SynonymReplaceOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
     """
 
     def __init__(self, verbose: bool = False, metrics: list = [], p: float = 0.5):

@@ -90,3 +90,18 @@ Finally, you can build the documentation as outlined below:
 ```bash
 make docs_build
 ```
+
+# Extension contribution
+Apart from improving, fixing and optimizing the code. There are three extensions possible for contributions:
+
+## More Evaluations
+There is no one prompt optimizer that works for all tasks. Extending evaluations by introducing more tasks will help choosing the right optimizer for the right task. 
+[Evaluations](https://github.com/vaibkumr/prompt-optimizer/tree/master/evaluations) directory of our project can be used as a motivation to design evaluations and run batch evaluation experiments for various optimizers. This is different from metrics which are used to measure optimization quality on-the-go to decide if the optimized prompt should be used or not. Evaluations run over a set of LLM taks with ideal responses to evaluate the quality of optimizations. In simple words, we have the input and label (ideal response from LLMs) for these evaluations while for metrics, we only have the input (before and after optimizations).
+
+
+## More Optimizers
+Certainly more and better optimizers are possible. Please see [custom optimizers](.) for a guide on how to create custom new optimizers using this library.
+
+
+## More Metrics
+Better metrics are possible to evaluate prompt optimization qualities. Please see [custom metrics](.) for a guide on how to create custom new metrics using this library.

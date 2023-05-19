@@ -6,8 +6,15 @@ from prompt_optimizer.poptim.base import PromptOptim
 class PunctuationOptim(PromptOptim):
     """
     PunctuationOptim is a prompt optimization technique that removes punctuation marks from the prompt.
+    LLMs can infer punctuations themselves in most cases, remove them.
 
     It inherits from the PromptOptim base class.
+
+    Example:
+        >>> from prompt_optimizer.poptim import PunctuationOptim
+        >>> p_optimizer = PunctuationOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
     """
 
     def __init__(self, verbose: bool = False, metrics: list = [], **kwargs):

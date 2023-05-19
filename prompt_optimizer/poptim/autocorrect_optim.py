@@ -6,8 +6,16 @@ from prompt_optimizer.poptim.base import PromptOptim
 class AutocorrectOptim(PromptOptim):
     """
     AutocorrectOptim is a prompt optimization technique that applies autocorrection to the prompt text.
+    Correctly spelled words have less token count than incorrect ones. This is useful in scenarios where
+    human client types the text.
 
     It inherits from the PromptOptim base class.
+
+    Example:
+        >>> from prompt_optimizer.poptim import AutocorrectOptim
+        >>> p_optimizer = AutocorrectOptim()
+        >>> res = p_optimizer("example prompt...")
+        >>> optimized_prompt = res.content
     """
 
     def __init__(self, fast: bool = False, verbose: bool = False, metrics: list = []):
