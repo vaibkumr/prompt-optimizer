@@ -6,5 +6,10 @@ prompt = [{"role":"system","content":"The following are binary choice questions 
 
 
 p_optimizer = EntropyOptim(verbose=True, p=0.5, metrics=[TokenMetric()])
-optimized_prompt = p_optimizer(prompt, skip_system=True, json=True)
-print(optimized_prompt)
+res = p_optimizer(prompt, json=True, skip_system=True)
+
+optimized_prompt = res.content
+metrics = res.metrics
+
+print(f"optimized_prompt: {optimized_prompt}")
+print(f"metrics: {metrics}")

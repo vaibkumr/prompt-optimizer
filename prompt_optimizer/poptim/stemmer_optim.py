@@ -1,9 +1,9 @@
 from nltk.stem import PorterStemmer
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class StemmerOptim(PromptOptimize):
+class StemmerOptim(PromptOptim):
     """
     StemmerOptim is a prompt optimization technique that applies stemming to the prompt.
 

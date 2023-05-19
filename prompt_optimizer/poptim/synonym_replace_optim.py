@@ -4,10 +4,10 @@ import nltk
 import tiktoken
 from nltk.corpus import wordnet
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class SynonymReplaceOptim(PromptOptimize):
+class SynonymReplaceOptim(PromptOptim):
     """
     SynonymReplaceOptim is a prompt optimization technique that replaces words in the prompt with their synonyms.
 

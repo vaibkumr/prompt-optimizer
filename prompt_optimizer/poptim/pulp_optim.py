@@ -1,13 +1,13 @@
 from pulp import LpBinary, LpMinimize, LpProblem, LpVariable, lpSum
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class PulpOptim(PromptOptimize):
+class PulpOptim(PromptOptim):
     """
     PulpOptim is a prompt optimization technique based on integer linear programming using the Pulp library.
 
-    It inherits from the PromptOptimize base class.
+    It inherits from the PromptOptim base class.
     """
 
     def __init__(self, p: float = 0.4, verbose: bool = False, metrics: list = []):

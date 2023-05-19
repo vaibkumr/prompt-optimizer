@@ -1,6 +1,8 @@
 from typing import Any, List
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
+
+from .utils import DotDict
 
 
 class Sequential:
@@ -25,14 +27,14 @@ class Sequential:
 
     """
 
-    def __init__(self, *optims: PromptOptimize):
+    def __init__(self, *optims: PromptOptim):
         """
         Initializes the Sequential object with the specified prompt optimization techniques.
 
         Args:
             *optims: Variable-length argument list of prompt optimization techniques.
         """
-        self.optims: List[PromptOptimize] = list(optims)
+        self.optims: List[PromptOptim] = list(optims)
 
     def __call__(self, x: Any) -> Any:
         """
@@ -44,6 +46,8 @@ class Sequential:
         Returns:
             Any: The optimized prompt after applying the sequential optimizations.
         """
+        d = DotDict()
+        d.content = x
         for optim in self.optims:
-            x = optim(x)
-        return x
+            d = optim(d.content)
+        return d

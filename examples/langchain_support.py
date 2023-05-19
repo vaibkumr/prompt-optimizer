@@ -1,8 +1,6 @@
 from prompt_optimizer.metric import TokenMetric
 from prompt_optimizer.poptim import EntropyOptim
-from langchain.chat_models import ChatOpenAI
 from langchain.schema import (
-    AIMessage,
     HumanMessage,
     SystemMessage
 )

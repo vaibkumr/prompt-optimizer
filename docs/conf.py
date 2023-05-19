@@ -37,6 +37,13 @@ author = "Vaibhav Kumar, Vaibhav Kumar"
 # ones.
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autodoc.typehints",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinxcontrib.autodoc_pydantic",
+    "sphinx_copybutton",
+    "myst_parser",
 ]
 source_suffix = [".ipynb", ".html", ".md", ".rst"]
 
@@ -54,17 +61,17 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_book_theme"
+html_theme = "sphinx_rtd_theme"
 
 html_theme_options = {
     "path_to_docs": "docs",
-    "repository_url": "https://github.com/TimeTraveller-San/prompt-optimizer",
+    "repository_url": "https://github.com/vaibkumr/prompt-optimizer",
     "use_repository_button": True,
 }
 
 html_context = {
     "display_github": True,  # Integrate GitHub
-    "github_user": "TimeTraveller-San",  # Username
+    "github_user": "vaibkumr",  # Username
     "github_repo": "prompt-optimizer",  # Repo name
     "github_version": "master",  # Version
     "conf_py_path": "/docs/",  # Path in the checkout to the docs root

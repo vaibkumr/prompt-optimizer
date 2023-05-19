@@ -8,4 +8,4 @@ def test_punctuation_optim():
     optimized_prompt = p_optimizer(prompt)
     print(prompt)
     print(optimized_prompt)
-    assert "," in optimized_prompt, "protect tags not working"
+    assert "," in optimized_prompt.content, "protect tags not working"

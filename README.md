@@ -9,9 +9,9 @@
 </div>
 <div align="center">
 
-[![lint](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/lint.yml) 
-[![test](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/test.yml) 
-[![linkcheck](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/TimeTraveller-San/prompt-optimizer/actions/workflows/linkcheck.yml) 
+[![lint](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/lint.yml/badge.svg)](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/lint.yml) 
+[![test](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/test.yml/badge.svg)](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/test.yml) 
+[![linkcheck](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/linkcheck.yml) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 </div>
@@ -34,17 +34,13 @@
 | Who is the president of the United States of America? | 11 | ✅ |  
 | Who president US | 3  (-72%) | ✅ |
 
-<div align="center">
-  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
-</div>
-
 # Installation
 ### Quick Installation
 ```pip install prompt-optimizer```
 
 ### Install from source
 ```bash
-git clone https://github.com/TimeTraveller-San/prompt-optimizer.git;
+git clone https://github.com/vaibkumr/prompt-optimizer.git;
 cd prompt-optimizer;
 pip install -e .
 ```
@@ -83,3 +79,7 @@ Following are the results for [logiqa](https://github.com/openai/evals/blob/main
 | Autocorrect_Optim | 0.01 | 0.3 | 1.14 |
 | Pulp_Optim_p_0.05 | 0.05 | 0.31 | 5.49 |
 | Pulp_Optim_p_0.1 | 0.1 | 0.25 | 9.52 |
+
+<div align="center">
+  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
+</div>

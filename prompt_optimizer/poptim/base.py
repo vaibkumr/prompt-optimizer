@@ -2,12 +2,12 @@ import copy
 from abc import ABC, abstractmethod
 
 from .logger import logger
-from .utils import protected_runner
+from .utils import DotDict, protected_runner
 
 
-class PromptOptimize(ABC):
+class PromptOptim(ABC):
     """
-    PromptOptimize is an abstract base class for prompt optimization techniques.
+    PromptOptim is an abstract base class for prompt optimization techniques.
 
     It defines the common structure and interface for prompt optimization.
 
@@ -18,7 +18,7 @@ class PromptOptimize(ABC):
         self, verbose: bool = False, metrics: list = [], protect_tag: str = None
     ):
         """
-        Initializes the PromptOptimize.
+        Initializes the PromptOptim.
 
         Args:
             verbose (bool, optional): Flag indicating whether to enable verbose output. Defaults to False.
@@ -67,11 +67,13 @@ class PromptOptimize(ABC):
         Returns:
             dict: The JSON data object with the content field replaced by the optimized prompt text.
         """
-        for data in json_data:
+        optim_json_data = copy.deepcopy(json_data)
+
+        for data in optim_json_data:
             if skip_system and data["role"] == "system":
                 continue
             data["content"] = self.run(data["content"])
-        return json_data
+        return optim_json_data
 
     def run_langchain(self, langchain_data: list, skip_system: bool = False):
         """
@@ -173,4 +175,8 @@ class PromptOptimize(ABC):
                 for key in metric_result:
                     logger.info(f"{key}: {metric_result[key]:.3f}")
 
-        return opti_prompt_data
+        result = DotDict()
+        result.content = opti_prompt_data
+        result.metrics = metric_results
+
+        return result

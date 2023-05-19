@@ -25,6 +25,7 @@ mypy = "^1.2.0"
 pytest = "^7.3.0"
 black = "^23.3.0"
 langchain = "^0.0.173"
+myst-parser = "^1.0.0"
 
 [tool.poetry.group.docs.dependencies]
 autodoc_pydantic = "^1.8.0"

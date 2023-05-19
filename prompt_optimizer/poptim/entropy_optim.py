@@ -2,14 +2,14 @@ import numpy as np
 import torch
 from transformers import AutoModelForMaskedLM, AutoTokenizer
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class EntropyOptim(PromptOptimize):
+class EntropyOptim(PromptOptim):
     """
     EntropyOptim is a prompt optimization technique based on entropy values.
 
-    It inherits from the PromptOptimize base class.
+    It inherits from the PromptOptim base class.
     """
 
     def __init__(

@@ -1,13 +1,13 @@
 from autocorrect import Speller
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class AutocorrectOptim(PromptOptimize):
+class AutocorrectOptim(PromptOptim):
     """
     AutocorrectOptim is a prompt optimization technique that applies autocorrection to the prompt text.
 
-    It inherits from the PromptOptimize base class.
+    It inherits from the PromptOptim base class.
     """
 
     def __init__(self, fast: bool = False, verbose: bool = False, metrics: list = []):

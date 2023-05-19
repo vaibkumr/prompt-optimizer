@@ -1,13 +1,13 @@
 import nltk
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class NameReplaceOptim(PromptOptimize):
+class NameReplaceOptim(PromptOptim):
     """
     NameReplaceOptim is a prompt optimization technique based on replacing names in the prompt.
 
-    It inherits from the PromptOptimize base class.
+    It inherits from the PromptOptim base class.
     """
 
     def __init__(self, verbose: bool = False, metrics: list = []):

@@ -1,13 +1,13 @@
 import string
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class PunctuationOptim(PromptOptimize):
+class PunctuationOptim(PromptOptim):
     """
     PunctuationOptim is a prompt optimization technique that removes punctuation marks from the prompt.
 
-    It inherits from the PromptOptimize base class.
+    It inherits from the PromptOptim base class.
     """
 
     def __init__(self, verbose: bool = False, metrics: list = [], **kwargs):

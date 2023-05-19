@@ -1,9 +1,9 @@
 import nltk
 
-from prompt_optimizer.poptim.base import PromptOptimize
+from prompt_optimizer.poptim.base import PromptOptim
 
 
-class StopWordOptim(PromptOptimize):
+class StopWordOptim(PromptOptim):
     """
     StopWordOptim is a prompt optimization technique that removes stop words from the prompt.
 

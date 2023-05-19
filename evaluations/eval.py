@@ -74,19 +74,19 @@ def run_logiqa(exp_name, p_optimizer, n_samples_max=100):
 
 if __name__ == "__main__":
     EXPERIMENTS = {
-        # "Default": None,
-        # "Entropy_Optim_p_0.05": EntropyOptim(p=0.05),
-        # "Entropy_Optim_p_0.1": EntropyOptim(p=0.1),
-        # "Entropy_Optim_p_0.25": EntropyOptim(p=0.25),
-        # "Entropy_Optim_p_0.5": EntropyOptim(p=0.5),
-        # "SynonymReplace_Optim_p_1.0": SynonymReplaceOptim(p=1),
-        # "Lemmatizer_Optim": LemmatizerOptim(),
-        # "Stemmer_Optim": StemmerOptim(),
+        "Default": None,
+        "Entropy_Optim_p_0.05": EntropyOptim(p=0.05),
+        "Entropy_Optim_p_0.1": EntropyOptim(p=0.1),
+        "Entropy_Optim_p_0.25": EntropyOptim(p=0.25),
+        "Entropy_Optim_p_0.5": EntropyOptim(p=0.5),
+        "SynonymReplace_Optim_p_1.0": SynonymReplaceOptim(p=1),
+        "Lemmatizer_Optim": LemmatizerOptim(),
+        "Stemmer_Optim": StemmerOptim(),
         "NameReplace_Optim": NameReplaceOptim(),
-        # "Punctuation_Optim": PunctuationOptim(),
-        # "Autocorrect_Optim": AutocorrectOptim(),
-        # "Pulp_Optim_p_0.05": PulpOptim(p=0.05),
-        # "Pulp_Optim_p_0.1": PulpOptim(p=0.1),
+        "Punctuation_Optim": PunctuationOptim(),
+        "Autocorrect_Optim": AutocorrectOptim(),
+        "Pulp_Optim_p_0.05": PulpOptim(p=0.05),
+        "Pulp_Optim_p_0.1": PulpOptim(p=0.1),
     }
     for exp_name in EXPERIMENTS:
         p_optimizer = EXPERIMENTS[exp_name]
