@@ -14,6 +14,8 @@
 [![linkcheck](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/vaibkumr/prompt-optimizer/actions/workflows/linkcheck.yml) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[Docs](https://promptoptimizer.readthedocs.io/en/latest/)
+
 </div>
 
 
@@ -62,7 +64,7 @@ print(optimized_prompt)
 
 ```
 # Evaluations
-Following are the results for [logiqa](https://github.com/openai/evals/blob/main/evals/registry/evals/logiqa.yaml) OpenAI evals task. It is only performed for first 100 samples. Please note the results over this task are not true for all other tasks, more thorough testing and domain knowledge is needed to choose the optimal optimizer.
+Following are the results for [logiqa](https://github.com/openai/evals/blob/main/evals/registry/evals/logiqa.yaml) OpenAI evals task. It is only performed for a subset of first 100 samples. Please note the optimizer performance over this task should not be generalized to other tasks, more thorough testing and domain knowledge is needed to choose the optimal optimizer.
 
 | Name | % Tokens Reduced | LogiQA Accuracy | USD Saved Per $100 |
 | --- | --- | --- | --- |
@@ -73,24 +75,30 @@ Following are the results for [logiqa](https://github.com/openai/evals/blob/main
 | Entropy_Optim_p_0.5 | 0.5 | 0.08 | 49.65 |
 | SynonymReplace_Optim_p_1.0 | 0.01 | 0.33 | 1.06 |
 | Lemmatizer_Optim | 0.01 | 0.33 | 1.01 |
-| Stemmer_Optim | -0.06 | 0.09 | -5.91 |
 | NameReplace_Optim | 0.01 | 0.34 | 1.13 |
 | Punctuation_Optim | 0.13 | 0.35 | 12.81 |
 | Autocorrect_Optim | 0.01 | 0.3 | 1.14 |
 | Pulp_Optim_p_0.05 | 0.05 | 0.31 | 5.49 |
 | Pulp_Optim_p_0.1 | 0.1 | 0.25 | 9.52 |
 
-<div align="center">
-  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
-</div>
-
 # Cost-Performance Tradeoff
 The reduction in cost often comes with a loss in LLM performance. Almost every optimizer have hyperparameters that control this tradeoff. 
 
 For example, in `EntropyOptim` the hyperparamter `p`, a floating point number between 0 and 1 controls the ratio of tokens to remove. `p=1.0` corresponds to removing all tokens while `p=0.0` corresponds to removing none. 
 
-The following chart shows the trade-off for different values of `p` as evaluated on the OpenAI [logiqa](https://github.com/openai/evals/blob/main/evals/registry/evals/logiqa.yaml) task.
+The following chart shows the trade-off for different values of `p` as evaluated on the OpenAI evals [logiqa](https://github.com/openai/evals/blob/main/evals/registry/evals/logiqa.yaml) task for a subset of first 100 samples.
 
 <div align="center">
   <img src="evaluations/artifacts/tradeoff.png" alt="tradeoff" />
+</div>
+
+# Contributing
+There are several directions to contribute to. Please see [CONTRIBUTING.md](.github/CONTRIBUTING.md) for contribution guidelines and possible future directions.
+
+# Social
+Contact us on twitter [Vaibhav Kumar](https://twitter.com/vaibhavk1o1) and [Vaibhav Kumar](https://twitter.com/vaibhavk97).
+
+# Inspiration
+<div align="center">
+  <img src="evaluations/artifacts/kevin.gif" alt="Image" />
 </div>
