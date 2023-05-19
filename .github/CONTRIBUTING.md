@@ -5,11 +5,9 @@ To contribute to this project, please follow a ["fork and pull request"](https:/
 
 ## Contributing Guidelines
 
-### GitHub Issues
+### GitHub Issues Format
 TBD
 
-### Release process
-TBD
 
 ## Quick Start
 
@@ -26,7 +24,7 @@ This will install all requirements for running the package, examples, linting, f
 
 Now, you should be able to run the common tasks in the following section.
 
-## ✅Common Tasks
+## Common Tasks
 
 Type `make` for a list of common tasks.
 
