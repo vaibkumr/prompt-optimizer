@@ -3,15 +3,15 @@
 Thank you for considering contributing to PromptOptimizer.
 To contribute to this project, please follow a ["fork and pull request"](https://docs.github.com/en/get-started/quickstart/contributing-to-projects) workflow.
 
-## 🗺️Contributing Guidelines
+## Contributing Guidelines
 
-### 🚩GitHub Issues
+### GitHub Issues
 TBD
 
-### 🏭Release process
+### Release process
 TBD
 
-## 🚀Quick Start
+## Quick Start
 
 This project uses [Poetry](https://python-poetry.org/) as a dependency manager. Check out Poetry's [documentation on how to install it](https://python-poetry.org/docs/#installation) on your system before proceeding.
 To install requirements:
