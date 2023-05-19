@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "prompt-optimizer"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Vaibhav Kumar <34630911+TimeTraveller-San@users.noreply.github.com>"]
 readme = "README.md"
