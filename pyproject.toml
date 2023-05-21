@@ -1,10 +1,13 @@
 [tool.poetry]
 name = "prompt-optimizer"
-version = "0.2.0"
+version = "0.2.1"
 description = ""
 authors = ["Vaibhav Kumar <34630911+TimeTraveller-San@users.noreply.github.com>"]
 readme = "README.md"
 packages = [{include = "prompt_optimizer"}]
+
+[tool.poetry.scripts]
+prompt-optimizer = "prompt_optimizer.cli.main:main"
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
@@ -55,7 +58,7 @@ select = [
 ]
 line-length = 88
 fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
-ignore = ["E501"]
+ignore = ["E501", "F403"]
 
 
 [tool.mypy]

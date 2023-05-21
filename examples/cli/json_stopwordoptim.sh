@@ -1,0 +1,1 @@
+prompt-optimizer data/example.jsonl "StopWordOptim" --json True --metrics "TokenMetric"

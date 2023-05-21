@@ -31,7 +31,7 @@ Getting Started
 
 - `Optimization Metrics <./getting_started/metrics.html>`_
 
-| PromptOptimizer CLI (Coming soon)
+| PromptOptimizer CLI
 
 - `CLI <./getting_started/cli.html>`_
 

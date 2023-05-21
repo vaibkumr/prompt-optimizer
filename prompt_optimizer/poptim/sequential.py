@@ -11,13 +11,14 @@ class Sequential:
 
     It applies a series of optimization techniques in sequence to the prompt.
 
-    Usage:
-    ```
-    optim1 = SomeOptimizationTechnique()
-    optim2 = AnotherOptimizationTechnique()
-    seq = Sequential(optim1, optim2)
-    optimized_prompt = seq(prompt)
-    ```
+
+
+
+    Example:
+        >>> optim1 = SomeOptimizationTechnique()
+        >>> optim2 = AnotherOptimizationTechnique()
+        >>> seq = Sequential(optim1, optim2)
+        >>> optimized_prompt = seq(prompt)
 
     Args:
         *optims: Variable-length argument list of prompt optimization techniques.

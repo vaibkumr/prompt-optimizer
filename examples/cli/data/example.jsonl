@@ -1,0 +1,4 @@
+[{"role":"system","content":"you are a python programmer"},{"user":"system","content":"plot the sierpiński triangle"}]
+[{"role":"system","content":"you are a python programmer"},{"user":"system","content":"plot the sierpiński carpet"}]
+[{"role":"system","content":"you are a python programmer"},{"user":"system","content":"plot the newton fractal"}]
+[{"role":"system","content":"you are a python programmer"},{"user":"system","content":"plot the buddhabrot set"}]

@@ -13,10 +13,7 @@ env:
   POETRY_VERSION: "1.4.2"
 
 jobs:
-  if_release:
-    if: |
-        ${{ github.event.pull_request.merged == true }}
-        && ${{ contains(github.event.pull_request.labels.*.name, 'release') }}
+  pypi:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
