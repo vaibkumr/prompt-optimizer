@@ -3,7 +3,7 @@ PromptOptimizer provides a command line interface `prompt_optimizer.cli.main:mai
 
 > Type `prompt-optimizer --help` on the command line:
 
-``
+```
 
 usage: prompt-optimizer [-h] [--json JSON] [--skip_system SKIP_SYSTEM]
                         [--optimizer_args [OPTIMIZER_ARGS ...]] [--metrics [METRICS ...]]
