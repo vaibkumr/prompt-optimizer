@@ -1,7 +1,7 @@
 # PromptOptimizer CLI
 PromptOptimizer provides a command line interface `prompt_optimizer.cli.main:main` to run prompt optimizations and metrics.
 
-> Type `prompt-optimizer --help` on the command line:
+- Type `prompt-optimizer --help` on the command line:
 
 ```
 

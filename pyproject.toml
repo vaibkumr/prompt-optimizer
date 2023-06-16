@@ -19,6 +19,7 @@ tiktoken = "^0.3.3"
 autocorrect = "^2.6.1"
 black = "^23.3.0"
 isort = "^5.12.0"
+openai = "^0.27.8"
 
 [tool.poetry.group.dev.dependencies]
 sphinx = "^6.1.3"
