@@ -14,22 +14,22 @@ class SQLDBManager:
     """
 
     def __init__(
-        self, project_name: str = "default", database_name: Optional[str] = None
+        self, project_name: str = "default", database_path: Optional[str] = None
     ):
         """
         Initializes a new SQLDBManager object.
 
         Args:
             project_name: The name of the project.
-            database_name: The name of the SQLite database file.
+            database_path: The path to the SQLite database file.
         """
-        if database_name is None:
+        if database_path is None:
             home_dir = os.path.expanduser("~")
             database_dir = os.path.join(home_dir, ".prompt_optim")
             os.makedirs(database_dir, exist_ok=True)
-            self.database_name = os.path.join(database_dir, "default.db")
+            self.database_path = os.path.join(database_dir, "default.db")
         else:
-            self.database_name = database_name
+            self.database_path = database_path
 
         self.connection = None
         self.cursor = None
@@ -55,7 +55,7 @@ class SQLDBManager:
         Connects to the SQLite database.
         """
         try:
-            self.connection = sqlite3.connect(self.database_name)
+            self.connection = sqlite3.connect(self.database_path)
             self.cursor = self.connection.cursor()
         except sqlite3.Error as e:
             print(f"Error connecting to the SQLite database: {e}")

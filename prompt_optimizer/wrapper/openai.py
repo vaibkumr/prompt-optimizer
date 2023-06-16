@@ -55,7 +55,7 @@ class OpenAIWrapper(Wrapper):
             optimized_messages = {}
 
         start_time = time.time()
-        response = openai_func(*args, **kwargs)
+        response = openai_func(*args, **kwargs) #TODO: Also log errors
         request_runtime = time.time() - start_time
 
         prompt_before_token_count = self.token_count(messages_before)
