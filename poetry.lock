@@ -2424,7 +2424,7 @@ six = ">=1.5"
 name = "python-dotenv"
 version = "1.0.0"
 description = "Read key-value pairs from a .env file and set them as environment variables"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.8"
 files = [
@@ -3748,4 +3748,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8.1,<4.0"
-content-hash = "5cee9c19a7c18a619cfdb13521410f4efebe1edb18dd279c9d70c2fca17fa184"
+content-hash = "76f41c59e482389271aa1911bf8abad3a4dd8c1c4ee36536c57515696efab9c1"
