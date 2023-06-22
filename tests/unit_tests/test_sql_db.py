@@ -6,6 +6,7 @@ def test_db():
     with db_manager:
         data = [
             datetime.now(),
+            "test_user",
             "prompt before",
             "prompt after",
             "continuation",
@@ -13,6 +14,8 @@ def test_db():
             2,
             1,
             "text-davinci-003",
+            0,
+            "None",
             0.12,
             0.11
         ]

@@ -14,7 +14,7 @@ class SQLDBManager:
     """
 
     def __init__(
-        self, project_name: str = "default", database_path: Optional[str] = None
+        self, project_name: str = "default_project", database_path: Optional[str] = None
     ):
         """
         Initializes a new SQLDBManager object.
@@ -35,13 +35,17 @@ class SQLDBManager:
         self.cursor = None
         self.project_name = project_name
         self.table_name = self.project_name
+        self.username = "default"
+
+    def set_user(self, username):
+        self.username = username
 
     def __enter__(self):
         """
         Establishes the database connection and cursor when entering the context.
         """
         self.connect()
-        self.create_table(self.table_name)
+        self.create_table()
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
@@ -60,7 +64,7 @@ class SQLDBManager:
         except sqlite3.Error as e:
             print(f"Error connecting to the SQLite database: {e}")
 
-    def create_table(self, table_name: str):
+    def create_table(self):
         """
         Creates a table in the database if it doesn't exist.
 
@@ -69,9 +73,10 @@ class SQLDBManager:
         """
         try:
             self.cursor.execute(
-                f"""CREATE TABLE IF NOT EXISTS {table_name} (
+                f"""CREATE TABLE IF NOT EXISTS {self.table_name} (
                                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                                     timestamp DATETIME,
+                                    username TEXT,
                                     prompt_before TEXT,
                                     prompt_after TEXT,
                                     continuation TEXT,
@@ -79,6 +84,8 @@ class SQLDBManager:
                                     prompt_after_token_count INTEGER,
                                     continuation_token_count INTEGER,
                                     model_name TEXT,
+                                    error INTEGER,
+                                    error_name TEXT,
                                     optimizer_latency FLOAT,
                                     request_latency FLOAT
                                 )"""
@@ -100,17 +107,20 @@ class SQLDBManager:
         try:
             self.cursor.execute(
                 f"""INSERT INTO {self.table_name} (
-                                    timestamp,
-                                    prompt_before,
-                                    prompt_after,
-                                    continuation,
-                                    prompt_before_token_count,
-                                    prompt_after_token_count,
-                                    continuation_token_count,
-                                    model_name,
-                                    optimizer_latency,
-                                    request_latency
-                                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                        timestamp,
+                        username,
+                        prompt_before,
+                        prompt_after,
+                        continuation,
+                        prompt_before_token_count,
+                        prompt_after_token_count,
+                        continuation_token_count,
+                        model_name,
+                        error,
+                        error_name,
+                        optimizer_latency,
+                        request_latency
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 data,
             )
             self.connection.commit()

@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import Dict, List, Union
 
-import tiktoken
+# import tiktoken
 
 
 class Wrapper(ABC):
@@ -24,31 +23,31 @@ class Wrapper(ABC):
         """
         self.db_manager = db_manager
         self.poptimizer = poptimizer
-        self.tokenizer = tiktoken.get_encoding("cl100k_base")
+        # self.tokenizer = tiktoken.get_encoding("cl100k_base")
 
-    def token_count(
-        self, messages: Union[List[Dict[str, str]], str], json: bool = True
-    ) -> int:
-        """
-        Calculates the total token count for the given messages.
+    # def token_count(
+    #     self, messages: Union[List[Dict[str, str]], str], json: bool = True
+    # ) -> int:
+    #     """
+    #     Calculates the total token count for the given messages.
 
-        Args:
-            messages: The list of messages or a single message string.
-            json: Indicates whether the messages are in JSON format (default: True).
+    #     Args:
+    #         messages: The list of messages or a single message string.
+    #         json: Indicates whether the messages are in JSON format (default: True).
 
-        Returns:
-            The total token count.
+    #     Returns:
+    #         The total token count.
 
-        Raises:
-            TypeError: If messages is not a list or a string.
-        """
-        if json is True:
-            c = sum([len(self.tokenizer.encode(m["content"])) for m in messages])
-        elif isinstance(messages, list):
-            c = sum([len(self.tokenizer.encode(m)) for m in messages])
-        else:
-            c = len(self.tokenizer.encode(messages))
-        return c
+    #     Raises:
+    #         TypeError: If messages is not a list or a string.
+    #     """
+    #     if json is True:
+    #         c = sum([len(self.tokenizer.encode(m["content"])) for m in messages])
+    #     elif isinstance(messages, list):
+    #         c = sum([len(self.tokenizer.encode(m)) for m in messages])
+    #     else:
+    #         c = len(self.tokenizer.encode(messages))
+    #     return c
 
     @abstractmethod
     def wrap(self, *args, **kwargs):
