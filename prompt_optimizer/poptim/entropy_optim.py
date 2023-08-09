@@ -80,8 +80,8 @@ class EntropyOptim(PromptOptim):
 
         probs = torch.softmax(logits, dim=-1)
         entropy_mapping = []
-        for i, input_id in enumerate(input_ids[0].detach().numpy()):
-            entropy = -torch.log2(probs[i, input_id]).detach().item()
+        for i, input_id in enumerate(input_ids[0].detach().cpu().numpy()):
+            entropy = -torch.log2(probs[i, input_id]).detach().cpu().item()
             entropy_mapping.append((input_id, entropy))
         return entropy_mapping
 
